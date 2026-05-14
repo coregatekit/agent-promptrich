@@ -29,17 +29,16 @@ spec:
               mountPath: /home/node/openclaw/workspace
       volumes:
         - name: config-volume
-          {{- if .Values.persistence.enabled -}}
+          {{- if .Values.persistence.enabled }}
           persistentVolumeClaim:
             claimName: {{ .Release.Name }}-config-pvc
-          {{- else -}}
+          {{- else }}
           emptyDir: {}
-          {{- end -}}
+          {{- end }}
         - name: workspace-volume
-          {{- if .Values.persistence.enabled -}}
+          {{- if .Values.persistence.enabled }}
           persistentVolumeClaim:
             claimName: {{ .Release.Name }}-workspace-pvc
-          {{- else -}}
+          {{- else }}
           emptyDir: {}
-          {{- end -}}
-            
+          {{- end }}
