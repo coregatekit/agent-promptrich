@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: openclaw
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: openclaw
+  template:
+    metadata:
+      labels:
+        app: openclaw
+    spec:
+      containers:
+        - name: openclaw
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 18789
+              protocol: TCP
+          volumeMounts:
+            - name: config-volume
+              mountPath: /home/node/.openclaw
+            - name: workspace-volume
+              mountPath: /home/node/openclaw/workspace
+      volumes:
+        - name: config-volume
+          {{- if .Values.persistence.enabled -}}
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}-config-pvc
+          {{- else -}}
+          emptyDir: {}
+          {{- end -}}
+        - name: workspace-volume
+          {{- if .Values.persistence.enabled -}}
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}-workspace-pvc
+          {{- else -}}
+          emptyDir: {}
+          {{- end -}}
+            
