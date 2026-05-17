@@ -1,9 +1,0 @@
-apiVersion: v2
-name: promptrich-openclaw
-description: Custom Helm Chart for OpenClaw AI Gateway on k3s
-type: application
-version: 0.1.0
-appVersion: latest
-maintainers:
-  - name: Joe Kim
-    email: joesm.genie@gmail.com
