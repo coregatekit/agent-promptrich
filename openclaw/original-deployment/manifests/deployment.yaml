@@ -17,6 +17,7 @@ spec:
         app: openclaw
     spec:
       automountServiceAccountToken: false
+      serviceAccount: openclaw-sa
       securityContext:
         fsGroup: 1000
         seccompProfile:
@@ -32,6 +33,12 @@ spec:
               cp /config/openclaw.json /home/node/.openclaw/openclaw.json
               mkdir -p /home/node/.openclaw/workspace
               cp /config/AGENTS.md /home/node/.openclaw/workspace/AGENTS.md
+
+              # Install tradingview-mcp skill
+              mkdir -p /home/node/.agents/skills/tradingview-mcp
+              mkdir -p /home/node/.openclaw/tools
+              wget -qO /home/node/.agents/skills/tradingview-mcp/SKILL.md https://raw.githubusercontent.com/atilaahmettaner/tradingview-mcp/main/openclaw/SKILL.md
+              wget -qO /home/node/.openclaw/tools/trading.py https://raw.githubusercontent.com/atilaahmettaner/tradingview-mcp/main/openclaw/trading.py              
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
@@ -47,9 +54,11 @@ spec:
               mountPath: /home/node/.openclaw
             - name: config
               mountPath: /config
+            - name: agents-volume
+              mountPath: /home/node/.agents
       containers:
         - name: gateway
-          image: ghcr.io/openclaw/openclaw:slim
+          image: ghcr.io/openclaw/openclaw:latest
           imagePullPolicy: IfNotPresent
           command:
             - node
@@ -87,15 +96,21 @@ spec:
             - name: GEMINI_API_KEY
               valueFrom:
                 secretKeyRef:
-                  name: openclaw-secrets
+                  name: gemini-secret
                   key: GEMINI_API_KEY
-                  optional: true
+                  optional: false
             - name: OPENROUTER_API_KEY
               valueFrom:
                 secretKeyRef:
                   name: openclaw-secrets
                   key: OPENROUTER_API_KEY
                   optional: true
+            - name: TELEGRAM_BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: TELEGRAM_TOKEN
+                  name: telegram-secret
+                  optional: false
           resources:
             requests:
               memory: 512Mi
@@ -124,6 +139,8 @@ spec:
           volumeMounts:
             - name: openclaw-home
               mountPath: /home/node/.openclaw
+            - name: agents-volume
+              mountPath: /home/node/.agents
             - name: tmp-volume
               mountPath: /tmp
           securityContext:
@@ -143,4 +160,6 @@ spec:
           configMap:
             name: openclaw-config
         - name: tmp-volume
+          emptyDir: {}
+        - name: agents-volume
           emptyDir: {}
