@@ -23,7 +23,7 @@ spec:
           #   - "8000"
           env:
             - name: MCP_ALLOWED_HOSTS
-              value: "tradingview-mcp-service:*,tradingview-mcp-service.mcp-tools:*,tradingview-mcp-service.mcp-tools.svc.cluster.local:*"
+              value: "tradingview-mcp-service:*,tradingview-mcp-service.mcp-tools:*,tradingview-mcp-service.mcp-tools.svc.cluster.local:*,openclaw.openclaw:*,openclaw.openclaw.svc.cluster.local:*"
           resources:
             requests:
               memory: "256Mi"
