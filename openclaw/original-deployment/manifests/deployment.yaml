@@ -38,7 +38,7 @@ spec:
               mkdir -p /home/node/.agents/skills/tradingview-mcp
               mkdir -p /home/node/.openclaw/tools
               wget -qO /home/node/.agents/skills/tradingview-mcp/SKILL.md https://raw.githubusercontent.com/atilaahmettaner/tradingview-mcp/main/openclaw/SKILL.md
-              wget -qO /home/node/.openclaw/tools/trading.py https://raw.githubusercontent.com/atilaahmettaner/tradingview-mcp/main/openclaw/trading.py              
+              wget -qO /home/node/.openclaw/tools/trading.py https://raw.githubusercontent.com/atilaahmettaner/tradingview-mcp/main/openclaw/trading.py
           securityContext:
             runAsUser: 1000
             runAsGroup: 1000
@@ -93,12 +93,12 @@ spec:
                   name: openclaw-secrets
                   key: OPENAI_API_KEY
                   optional: true
-            - name: GEMINI_API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: gemini-secret
-                  key: GEMINI_API_KEY
-                  optional: false
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /etc/vertex/GOOGLE_APPLICATION_CREDENTIALS
+            - name: GOOGLE_CLOUD_PROJECT
+              value: "coregate"
+            - name: GOOGLE_CLOUD_LOCATION
+              value: "asia-southeast2"
             - name: OPENROUTER_API_KEY
               valueFrom:
                 secretKeyRef:
@@ -143,6 +143,9 @@ spec:
               mountPath: /home/node/.agents
             - name: tmp-volume
               mountPath: /tmp
+            - name: vertex-secret-volume
+              mountPath: /etc/vertex
+              readOnly: true
           securityContext:
             runAsNonRoot: true
             runAsUser: 1000
@@ -163,3 +166,6 @@ spec:
           emptyDir: {}
         - name: agents-volume
           emptyDir: {}
+        - name: vertex-secret-volume
+          secret:
+            secretName: vertex-secret

@@ -22,10 +22,10 @@ data:
       "models": {
         "mode": "merge",
         "providers": {
-          "google-gemini-3": {
-            "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
-            "apiKey": "${GEMINI_API_KEY}" ,
-            "api": "google-generative-ai",
+          "google-vertex": {
+            "api": "google-vertex-ai",
+            "project": "${GOOGLE_CLOUD_PROJECT}",
+            "location": "${GOOGLE_CLOUD_LOCATION}",
             "models": [
               {
                 "id": "gemini-3-flash-preview",
