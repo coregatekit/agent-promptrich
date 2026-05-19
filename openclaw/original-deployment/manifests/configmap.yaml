@@ -21,42 +21,13 @@ data:
       },
       "models": {
         "mode": "merge",
-        "providers": {
-          "google-vertex": {
-            "api": "google-vertex-ai",
-            "project": "${GOOGLE_CLOUD_PROJECT}",
-            "location": "${GOOGLE_CLOUD_LOCATION}",
-            "models": [
-              {
-                "id": "gemini-3-flash-preview",
-                "name": "Gemini 3 Flash",
-                "input": ["text", "image", "video", "audio"],
-                "contextWindow": 1048576,
-                "maxTokens": 65536
-              },
-              {
-                "id": "gemini-3.1-flash-lite",
-                "name": "Gemini 3.1 Flash-Lite",
-                "input": ["text", "image", "video", "audio"],
-                "contextWindow": 1048576,
-                "maxTokens": 65536
-              },
-              {
-                "id": "gemini-3.1-pro-preview",
-                "name": "Gemini 3.1 Pro Preview",
-                "input": ["text", "image"],
-                "contextWindow": 1048576,
-                "maxTokens": 65536
-              }
-            ]
-          }
-        }
+        "providers": {}
       },
       "agents": {
         "defaults": {
           "workspace": "~/.openclaw/workspace",
           "model": {
-            "primary": "gemini-3.1-flash-lite"
+            "primary": "google-vertex/gemini-3.1-flash-lite"
           },
           "heartbeat": {
             "every": "0m"
