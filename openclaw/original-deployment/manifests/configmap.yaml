@@ -22,11 +22,12 @@ data:
       "agents": {
         "defaults": {
           "workspace": "~/.openclaw/workspace",
+          "thinkingDefault": "off",
           "model": {
-            "primary": "google-vertex/gemini-3.1-flash-lite",
+            "primary": "gemini-3.1-flash-lite",
             "fallbacks": [
-              "google-vertex/gemini-3.1-pro",
-              "google-vertex/gemini-3-flash"
+              "google/gemini-3.1-flash",
+              "google/gemini-3-flash"
             ]
           },
           "heartbeat": {

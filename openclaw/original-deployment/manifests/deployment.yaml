@@ -93,18 +93,18 @@ spec:
                   name: openclaw-secrets
                   key: OPENAI_API_KEY
                   optional: true
-            - name: GOOGLE_APPLICATION_CREDENTIALS
-              value: /etc/vertex/GOOGLE_APPLICATION_CREDENTIALS
-            - name: GOOGLE_CLOUD_PROJECT
-              value: "coregate"
-            - name: GOOGLE_CLOUD_LOCATION
-              value: "asia-southeast2"
             - name: OPENROUTER_API_KEY
               valueFrom:
                 secretKeyRef:
                   name: openclaw-secrets
                   key: OPENROUTER_API_KEY
                   optional: true
+            - name: GEMINI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: gemini-secret
+                  key: GEMINI_API_KEY
+                  optional: false
             - name: TELEGRAM_BOT_TOKEN
               valueFrom:
                 secretKeyRef:
@@ -143,9 +143,6 @@ spec:
               mountPath: /home/node/.agents
             - name: tmp-volume
               mountPath: /tmp
-            - name: vertex-secret-volume
-              mountPath: /etc/vertex
-              readOnly: true
           securityContext:
             runAsNonRoot: true
             runAsUser: 1000
@@ -166,6 +163,3 @@ spec:
           emptyDir: {}
         - name: agents-volume
           emptyDir: {}
-        - name: vertex-secret-volume
-          secret:
-            secretName: vertex-secret
