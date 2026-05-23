@@ -24,7 +24,7 @@ data:
           "workspace": "~/.openclaw/workspace",
           "thinkingDefault": "off",
           "model": {
-            "primary": "gemini-3.1-flash-lite",
+            "primary": "google/gemini-3.1-flash-lite",
             "fallbacks": [
               "google/gemini-3.1-flash",
               "google/gemini-3-flash"
