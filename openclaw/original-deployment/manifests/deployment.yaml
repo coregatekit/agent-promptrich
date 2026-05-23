@@ -58,7 +58,7 @@ spec:
               mountPath: /home/node/.agents
       containers:
         - name: gateway
-          image: ghcr.io/openclaw/openclaw:latest
+          image: ghcr.io/openclaw/openclaw:2026.5.20
           imagePullPolicy: IfNotPresent
           command:
             - node
