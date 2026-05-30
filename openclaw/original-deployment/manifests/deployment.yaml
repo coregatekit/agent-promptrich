@@ -34,6 +34,16 @@ spec:
               mkdir -p /home/node/.openclaw/workspace
               cp /config/AGENTS.md /home/node/.openclaw/workspace/AGENTS.md
 
+              # Pair promptrich files with its workspace
+              mkdir -p /home/node/.openclaw/agents/promptrich
+              cp /config/promptrich_AGENTS.md /home/node/.openclaw/agents/promptrich/AGENTS.md
+              cp /config/promptrich_SOUL.md /home/node/.openclaw/agents/promptrich/SOUL.md
+
+              # Pair daily_news_promptrich files with its workspace
+              mkdir -p /home/node/.openclaw/agents/daily_news_promptrich
+              cp /config/daily_news_promptrich_AGENTS.md /home/node/.openclaw/agents/daily_news_promptrich/AGENTS.md
+              cp /config/daily_news_promptrich_SOUL.md /home/node/.openclaw/agents/daily_news_promptrich/SOUL.md
+
               # Install tradingview-mcp skill
               mkdir -p /home/node/.agents/skills/tradingview-mcp
               mkdir -p /home/node/.openclaw/tools
