@@ -111,6 +111,12 @@ spec:
                   key: TELEGRAM_TOKEN
                   name: telegram-secret
                   optional: false
+            - name: TELEGRAM_DAILY_NEWS_BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: TELEGRAM_DAILY_NEWS_BOT_TOKEN
+                  name: telegram-secret
+                  optional: true
           resources:
             requests:
               memory: 512Mi

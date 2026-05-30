@@ -24,10 +24,9 @@ data:
           "workspace": "~/.openclaw/workspace",
           "thinkingDefault": "off",
           "model": {
-            "primary": "google/gemini-3.1-flash-lite-preview",
+            "primary": "google/gemini-3.5-flash",
             "fallbacks": [
-              "google/gemini-3.1-flash",
-              "google/gemini-3-flash"
+              "google/gemini-3.1-flash-lite"
             ]
           },
           "heartbeat": {
@@ -39,6 +38,16 @@ data:
             "id": "default",
             "name": "OpenClaw Assistant",
             "workspace": "~/.openclaw/workspace"
+          },
+          {
+            "id": "promptrich",
+            "name": "Agent PromptRich",
+            "workspace": "~/.openclaw/agents/promptrich"
+          },
+          {
+            "id": "daily_news_promptrich",
+            "name": "Daily News PromptRich",
+            "workspace": "~/.openclaw/agents/daily_news_promptrich"
           }
         ]
       },
@@ -50,13 +59,29 @@ data:
           }
         }
       },
-      "cron": { "enabled": false },
+      "cron": { 
+        "enabled": true 
+      },
       "channels": {
         "telegram": {
-          "botToken": {
-            "source": "env",
-            "provider": "default",
-            "id": "TELEGRAM_BOT_TOKEN"
+          "enabled": true,
+          "accounts": {
+            "promptrich": {
+              "botToken": {
+                "source": "env",
+                "provider": "default",
+                "id": "TELEGRAM_BOT_TOKEN",
+                "dmPolicy": "pairing"
+              }
+            },
+            "daily_news_promptrich": {
+              "botToken": {
+                "source": "env",
+                "provider": "default",
+                "id": "TELEGRAM_DAILY_NEWS_BOT_TOKEN",
+                "dmPolicy": "pairing"
+              }
+            }
           }
         }
       }
