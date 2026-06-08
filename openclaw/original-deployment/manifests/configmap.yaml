@@ -68,7 +68,6 @@ data:
       "channels": {
         "telegram": {
           "enabled": true,
-          "allowImages": true,
           "mediaMaxMb": 10,
           "accounts": {
             "promptrich": {
