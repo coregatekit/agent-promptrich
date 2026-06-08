@@ -37,6 +37,12 @@ data:
               "google/gemini-3.5-flash"
             ]
           },
+          "imageGenerationModel": {
+            "primary": "google/gemini-3.1-flash-image-preview",
+            "fallbacks": [
+              "google/gemini-3.1-flash-image-preview"
+            ]
+          },
           "heartbeat": {
             "every": "0m"
           }
