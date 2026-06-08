@@ -30,6 +30,13 @@ data:
               "google/gemini-3.5-flash"
             ]
           },
+          "imageModel": {
+            "primary": "google/gemini-3.1-flash-lite",
+            "fallbacks": [
+              "google/gemini-3.1-flash",
+              "google/gemini-3.5-flash"
+            ]
+          },
           "heartbeat": {
             "every": "0m"
           }
@@ -61,6 +68,8 @@ data:
       "channels": {
         "telegram": {
           "enabled": true,
+          "allowImages": true,
+          "mediaMaxMb": 10,
           "accounts": {
             "promptrich": {
               "botToken": {
