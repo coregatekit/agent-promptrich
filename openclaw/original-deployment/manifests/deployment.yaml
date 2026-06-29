@@ -70,7 +70,7 @@ spec:
               mountPath: /home/node/.agents
       containers:
         - name: gateway
-          image: ghcr.io/openclaw/openclaw:2026.5.27
+          image: ghcr.io/openclaw/openclaw:2026.6.10
           imagePullPolicy: IfNotPresent
           command:
             - node
@@ -141,7 +141,9 @@ spec:
               command:
                 - node
                 - -e
-                - "require('http').get('http://127.0.0.1:18789/healthz', r => process.exit(r.statusCode < 400 ? 0 : 1)).on('error', () => process.exit(1))"
+                - "require('http').get('http://127.0.0.1:18789/healthz', r =>
+                  process.exit(r.statusCode < 400 ? 0 : 1)).on('error', () =>
+                  process.exit(1))"
             initialDelaySeconds: 60
             periodSeconds: 30
             timeoutSeconds: 10
@@ -150,7 +152,9 @@ spec:
               command:
                 - node
                 - -e
-                - "require('http').get('http://127.0.0.1:18789/readyz', r => process.exit(r.statusCode < 400 ? 0 : 1)).on('error', () => process.exit(1))"
+                - "require('http').get('http://127.0.0.1:18789/readyz', r =>
+                  process.exit(r.statusCode < 400 ? 0 : 1)).on('error', () =>
+                  process.exit(1))"
             initialDelaySeconds: 15
             periodSeconds: 10
             timeoutSeconds: 5
