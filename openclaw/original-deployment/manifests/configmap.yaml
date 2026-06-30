@@ -24,17 +24,17 @@ data:
           "workspace": "~/.openclaw/workspace",
           "thinkingDefault": "off",
           "model": {
-            "primary": "google/gemini-3.1-flash-lite",
+            "primary": "google/gemini-3.5-flash",
             "fallbacks": [
-              "google/gemini-3.1-flash",
-              "google/gemini-3.5-flash"
+              "google/gemini-3.1-flash-lite",
+              "google/gemini-3.1-flash"
             ]
           },
           "imageModel": {
-            "primary": "google/gemini-3.1-flash-lite",
+            "primary": "google/gemini-3.5-flash",
             "fallbacks": [
-              "google/gemini-3.1-flash",
-              "google/gemini-3.5-flash"
+              "google/gemini-3.1-flash-lite",
+              "google/gemini-3.1-flash"
             ]
           },
           "imageGenerationModel": {
