@@ -40,6 +40,12 @@ spec:
               cp /config/promptrich_SOUL.md /home/node/.openclaw/agents/promptrich/SOUL.md
               cp /config/USER.md /home/node/.openclaw/agents/promptrich/USER.md
 
+              # Pair promptrich noti files with its workspace
+              mkdir -p /home/node/.openclaw/agents/promptrich_noti
+              cp /config/promptrich_AGENTS.md /home/node/.openclaw/agents/promptrich_noti/AGENTS.md
+              cp /config/promptrich_SOUL.md /home/node/.openclaw/agents/promptrich_noti/SOUL.md
+              cp /config/USER.md /home/node/.openclaw/agents/promptrich_noti/USER.md
+
               # Pair daily_news_promptrich files with its workspace
               mkdir -p /home/node/.openclaw/agents/daily_news_promptrich
               cp /config/daily_news_promptrich_AGENTS.md /home/node/.openclaw/agents/daily_news_promptrich/AGENTS.md
