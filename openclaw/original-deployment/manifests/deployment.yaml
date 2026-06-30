@@ -129,6 +129,12 @@ spec:
                   key: TELEGRAM_TOKEN
                   name: telegram-secret
                   optional: false
+            - name: TELEGRAM_PROMPTRICH_NOTI_BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: TELEGRAM_PROMPTRICH_NOTI_BOT_TOKEN
+                  name: telegram-secret
+                  optional: true
             - name: TELEGRAM_DAILY_NEWS_BOT_TOKEN
               valueFrom:
                 secretKeyRef:
