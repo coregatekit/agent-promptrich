@@ -24,7 +24,7 @@ data:
           "workspace": "~/.openclaw/workspace",
           "thinkingDefault": "off",
           "model": {
-            "primary": "google/gemini-3.6-flash",
+            "primary": "google/gemini-3.5-flash",
             "fallbacks": [
               "google/gemini-3.5-flash-lite",
               "google/gemini-3.1-flash"
@@ -33,13 +33,14 @@ data:
           "imageModel": {
             "primary": "google/gemini-3.5-flash-lite",
             "fallbacks": [
+              "google/gemini-3.1-flash-lite",
               "google/gemini-3.1-flash"
             ]
           },
           "imageGenerationModel": {
             "primary": "google/gemini-3.5-flash-lite",
             "fallbacks": [
-              "google/gemini-3.1-flash"
+              "google/gemini-3.1-flash-image-preview"
             ]
           },
           "heartbeat": {
