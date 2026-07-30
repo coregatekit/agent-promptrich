@@ -52,6 +52,12 @@ spec:
               cp /config/daily_news_promptrich_SOUL.md /home/node/.openclaw/agents/daily_news_promptrich/SOUL.md
               cp /config/USER.md /home/node/.openclaw/agents/daily_news_promptrich/USER.md
 
+              # Pair trader_claw files with its workspace
+              mkdir -p /home/node/.openclaw/agents/trader_claw
+              cp /config/trader_claw_AGENTS.md /home/node/.openclaw/agents/trader_claw/AGENTS.md
+              cp /config/trader_claw_SOUL.md /home/node/.openclaw/agents/trader_claw/SOUL.md
+              cp /config/USER.md /home/node/.openclaw/agents/trader_claw/USER.md
+
               # Install tradingview-mcp skill
               mkdir -p /home/node/.agents/skills/tradingview-mcp
               mkdir -p /home/node/.openclaw/tools
