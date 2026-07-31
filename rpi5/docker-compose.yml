@@ -1,0 +1,24 @@
+services:
+  tradingview-mcp:
+    image: ghcr.io/coregatekit/tradingview-mcp:sha-ab9f404
+    container_name: tradingview-mcp
+    restart: unless-stopped
+    environment:
+      - MCP_ALLOWED_HOSTS=*
+    ports:
+      - "8000:8000"
+    networks:
+      - openclaw
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.1'
+          memory: 256M
+  
+
+networks:
+  openclaw:
+    external: true
