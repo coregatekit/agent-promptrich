@@ -38,11 +38,6 @@
         "workspace": "~/.openclaw/agents/promptrich"
       },
       {
-        "id": "promptrich_noti",
-        "name": "Agent PromptRich Notification",
-        "workspace": "~/.openclaw/agents/promptrich_noti"
-      },
-      {
         "id": "daily_news_promptrich",
         "name": "Daily News PromptRich",
         "workspace": "~/.openclaw/agents/daily_news_promptrich"
@@ -75,13 +70,6 @@
             "source": "env",
             "provider": "default",
             "id": "TELEGRAM_BOT_TOKEN"
-          }
-        },
-        "promptrich_noti": {
-          "botToken": {
-            "source": "env",
-            "provider": "default",
-            "id": "TELEGRAM_PROMPTRICH_NOTI_BOT_TOKEN"
           }
         },
         "daily_news_promptrich": {
