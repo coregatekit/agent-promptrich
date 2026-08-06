@@ -78,6 +78,13 @@
             "provider": "default",
             "id": "TELEGRAM_DAILY_NEWS_BOT_TOKEN"
           }
+        },
+        "trader_claw": {
+          "botToken": {
+            "source": "env",
+            "provider": "default",
+            "id": "TELEGRAM_TRADER_CLAW_BOT_TOKEN"
+          }
         }
       }
     }
