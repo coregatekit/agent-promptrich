@@ -1,0 +1,97 @@
+{
+  "gateway": {
+    "mode": "local",
+    "bind": "lan",
+    "port": 18789,
+    "auth": {
+      "mode": "token"
+    },
+    "controlUi": {
+      "enabled": true,
+      "allowedOrigins": ["https://pipi.tail4a8500.ts.net"]
+    }
+  },
+  "agents": {
+    "defaults": {
+      "workspace": "~/.openclaw/workspace",
+      "thinkingDefault": "off",
+      "model": {
+        "primary": "google/gemini-3.6-flash",
+        "fallbacks": ["google/gemini-3.5-flash-lite", "google/gemini-3.1-flash"]
+      },
+      "imageModel": {
+        "primary": "google/gemini-3.5-flash-lite",
+        "fallbacks": ["google/gemini-3.1-flash-lite", "google/gemini-3.1-flash"]
+      },
+      "imageGenerationModel": {
+        "primary": "google/gemini-3.5-flash-lite",
+        "fallbacks": ["google/gemini-3.1-flash-image-preview"]
+      },
+      "heartbeat": {
+        "every": "0m"
+      }
+    },
+    "list": [
+      {
+        "id": "promptrich",
+        "name": "Agent PromptRich",
+        "workspace": "~/.openclaw/agents/promptrich"
+      },
+      {
+        "id": "promptrich_noti",
+        "name": "Agent PromptRich Notification",
+        "workspace": "~/.openclaw/agents/promptrich_noti"
+      },
+      {
+        "id": "daily_news_promptrich",
+        "name": "Daily News PromptRich",
+        "workspace": "~/.openclaw/agents/daily_news_promptrich"
+      },
+      {
+        "id": "trader_claw",
+        "name": "Trader Claw",
+        "workspace": "~/.openclaw/agents/trader_claw"
+      }
+    ]
+  },
+  "mcp": {
+    "servers": {
+      "tradingview": {
+        "url": "http://tradingview-mcp:8000/mcp",
+        "transport": "streamable-http"
+      }
+    }
+  },
+  "cron": {
+    "enabled": true
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "mediaMaxMb": 10,
+      "accounts": {
+        "promptrich": {
+          "botToken": {
+            "source": "env",
+            "provider": "default",
+            "id": "TELEGRAM_BOT_TOKEN"
+          }
+        },
+        "promptrich_noti": {
+          "botToken": {
+            "source": "env",
+            "provider": "default",
+            "id": "TELEGRAM_PROMPTRICH_NOTI_BOT_TOKEN"
+          }
+        },
+        "daily_news_promptrich": {
+          "botToken": {
+            "source": "env",
+            "provider": "default",
+            "id": "TELEGRAM_DAILY_NEWS_BOT_TOKEN"
+          }
+        }
+      }
+    }
+  }
+}
