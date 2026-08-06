@@ -1,6 +1,6 @@
 services:
   tradingview-mcp:
-    image: ghcr.io/coregatekit/tradingview-mcp:sha-ab9f404
+    image: ghcr.io/coregatekit/tradingview-mcp:sha-948a476
     container_name: tradingview-mcp
     restart: unless-stopped
     environment:
