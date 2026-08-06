@@ -35,17 +35,20 @@
       {
         "id": "promptrich",
         "name": "Agent PromptRich",
-        "workspace": "~/.openclaw/agents/promptrich"
+        "workspace": "~/.openclaw/agents/promptrich",
+        "model": "google/gemini-3.6-flash"
       },
       {
         "id": "daily_news_promptrich",
         "name": "Daily News PromptRich",
-        "workspace": "~/.openclaw/agents/daily_news_promptrich"
+        "workspace": "~/.openclaw/agents/daily_news_promptrich",
+        "model": "google/gemini-3.5-flash-lite"
       },
       {
         "id": "trader_claw",
         "name": "Trader Claw",
-        "workspace": "~/.openclaw/agents/trader_claw"
+        "workspace": "~/.openclaw/agents/trader_claw",
+        "model": "google/gemini-3.6-flash"
       }
     ]
   },
