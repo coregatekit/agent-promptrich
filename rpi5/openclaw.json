@@ -17,7 +17,6 @@
     "defaults": {
       "workspace": "~/.openclaw/workspace",
       "thinkingDefault": "low",
-      "timeoutSeconds": 180,
       "model": {
         "primary": "google/gemini-3.6-flash",
         "fallbacks": [
