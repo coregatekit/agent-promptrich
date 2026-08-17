@@ -16,12 +16,13 @@
   "agents": {
     "defaults": {
       "workspace": "~/.openclaw/workspace",
-      "thinkingDefault": "off",
+      "thinkingDefault": "low",
+      "reasoning": "stream",
       "model": {
-        "primary": "google/gemini-3.6-flash",
+        "primary": "google/gemini-3.7-flash",
         "fallbacks": [
-          "google/gemini-3.5-flash-lite",
-          "google/gemini-3.1-flash"
+          "google/gemini-3.6-flash",
+          "google/gemini-3.5-flash-lite"
         ]
       },
       "imageModel": {
