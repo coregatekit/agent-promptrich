@@ -18,11 +18,14 @@
       "workspace": "~/.openclaw/workspace",
       "thinkingDefault": "low",
       "model": {
-        "primary": "google/gemini-3.6-flash",
+        "primary": "google/gemini-3.7-flash",
         "fallbacks": [
-          "google/gemini-3.5-flash",
+          "google/gemini-3.6-flash",
           "google/gemini-3.5-flash-lite"
-        ]
+        ],
+        "models": {
+          "google/gemini-3.7-flash": {}
+        }
       },
       "imageModel": {
         "primary": "google/gemini-3.5-flash-lite",
