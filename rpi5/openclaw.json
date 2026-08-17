@@ -8,9 +8,7 @@
     },
     "controlUi": {
       "enabled": true,
-      "allowedOrigins": [
-        "https://pipi.tail4a8500.ts.net"
-      ]
+      "allowedOrigins": ["https://pipi.tail4a8500.ts.net"]
     }
   },
   "agents": {
@@ -19,11 +17,9 @@
       "thinkingDefault": "low",
       "model": {
         "primary": "google/gemini-3.6-flash",
-        "fallbacks": [
-          "google/gemini-3.5-flash",
-          "google/gemini-3.5-flash-lite"
-        ]
+        "fallbacks": ["google/gemini-3.5-flash", "google/gemini-3.5-flash-lite"]
       },
+      "timeoutMs": 180000,
       "imageModel": {
         "primary": "google/gemini-3.5-flash-lite",
         "fallbacks": [
@@ -34,9 +30,7 @@
       "mediaModels": {
         "image": {
           "primary": "google/gemini-3.5-flash-lite",
-          "fallbacks": [
-            "google/gemini-3.1-flash-image-preview"
-          ]
+          "fallbacks": ["google/gemini-3.1-flash-image-preview"]
         }
       },
       "heartbeat": {
@@ -71,12 +65,17 @@
     "servers": {
       "tradingview": {
         "url": "http://tradingview-mcp:8000/mcp",
-        "transport": "streamable-http"
+        "transport": "streamable-http",
+        "timeoutMs": 300000
       }
     }
   },
   "cron": {
     "enabled": true
+  },
+  "tools": {
+    "timeoutMs": 300000,
+    "connectTimeoutMs": 60000
   },
   "channels": {
     "telegram": {
