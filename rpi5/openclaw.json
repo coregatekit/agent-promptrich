@@ -15,6 +15,7 @@
     }
   },
   "agents": {
+    "ownership": "explicit",
     "defaults": {
       "workspace": "~/.openclaw/workspace",
       "thinkingDefault": "low",
