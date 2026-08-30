@@ -56,12 +56,6 @@
         "model": "google/gemini-3.6-flash"
       },
       {
-        "id": "daily_news_promptrich",
-        "name": "Daily News PromptRich",
-        "workspace": "~/.openclaw/agents/daily_news_promptrich",
-        "model": "google/gemini-3.5-flash-lite"
-      },
-      {
         "id": "trader_claw",
         "name": "Trader Claw",
         "workspace": "~/.openclaw/agents/trader_claw",
@@ -92,13 +86,6 @@
             "id": "TELEGRAM_BOT_TOKEN"
           }
         },
-        "daily_news_promptrich": {
-          "botToken": {
-            "source": "env",
-            "provider": "default",
-            "id": "TELEGRAM_DAILY_NEWS_BOT_TOKEN"
-          }
-        },
         "trader_claw": {
           "botToken": {
             "source": "env",
@@ -114,7 +101,14 @@
       "agentId": "promptrich",
       "match": {
         "channel": "telegram",
-        "accountId": "*"
+        "accountId": "promptrich"
+      }
+    },
+    {
+      "agentId": "trader_claw",
+      "match": {
+        "channel": "telegram",
+        "accountId": "trader_claw"
       }
     }
   ],
