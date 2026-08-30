@@ -16,7 +16,7 @@ services:
           memory: 256M
 
   openclaw-gateway:
-    image: ghcr.io/openclaw/openclaw:2026.8.1-beta.3
+    image: ghcr.io/openclaw/openclaw:2026.9.1-beta.1
     container_name: openclaw-gateway
     restart: unless-stopped
     init: true
