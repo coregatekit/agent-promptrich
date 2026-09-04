@@ -7,6 +7,18 @@ services:
       - MCP_ALLOWED_HOSTS=*
     ports:
       - "8000:8000"
+    healthcheck:
+      # image's default probe hits GET /health which this server doesn't expose (404);
+      # override with a plain TCP connect check against the listening port.
+      test:
+        - CMD
+        - python
+        - -c
+        - "import socket; s=socket.create_connection(('127.0.0.1',8000),5); s.close()"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
     networks:
       - openclaw
     deploy:
