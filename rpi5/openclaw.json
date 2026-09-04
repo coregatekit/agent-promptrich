@@ -20,7 +20,7 @@
       "workspace": "~/.openclaw/workspace",
       "thinkingDefault": "low",
       "model": {
-        "primary": "google/gemini-3.6-flash",
+        "primary": "google/gemini-3.8-flash",
         "fallbacks": [
           "google/gemini-3.5-flash",
           "google/gemini-3.5-flash-lite"
@@ -53,13 +53,13 @@
         "id": "promptrich",
         "name": "Agent PromptRich",
         "workspace": "~/.openclaw/agents/promptrich",
-        "model": "google/gemini-3.6-flash"
+        "model": "google/gemini-3.8-flash"
       },
       {
         "id": "trader_claw",
         "name": "Trader Claw",
         "workspace": "~/.openclaw/agents/trader_claw",
-        "model": "google/gemini-3.6-flash"
+        "model": "google/gemini-3.8-flash"
       }
     ]
   },
